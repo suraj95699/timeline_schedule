@@ -1,12 +1,12 @@
-<div class="control-section">
+<!-- <div class="control-section">
     <ejs-schedule #scheduleObj width='100%' height='550px' [selectedDate]="selectedDate" [eventSettings]="eventSettings"
-        (actionBegin)="onActionBegin($event)" (eventRendered)="onEventRendered($event)" [showQuickInfo]="showQuickInfo">
+    (popupOpen)='onPopupOpen($event)' (actionBegin)="onActionBegin($event)" (eventRendered)="onEventRendered($event)" [showQuickInfo]="showQuickInfo">
         <e-views>
-            <!-- <e-view option="TimelineDay"></e-view> -->
+            <e-view option="TimelineDay"></e-view>
             <e-view option="TimelineWeek"></e-view>
-            <!-- <e-view option="TimelineWorkWeek"></e-view>
+            <e-view option="TimelineWorkWeek"></e-view>
             <e-view option="TimelineMonth"></e-view>
-            <e-view option="Agenda"></e-view> -->
+            <e-view option="Agenda"></e-view>
         </e-views>
         <ng-template #editorTemplate let-data>
             <table *ngIf="data != undefined" class="custom-event-editor" width="100%" cellpadding="5">
@@ -54,4 +54,29 @@
         </ng-template>
     </ejs-schedule>
 
-</div>
+</div> -->
+
+
+
+
+
+<ejs-schedule width='100%' height='550px' [selectedDate]='selectedDate' [views]='views' 
+[eventSettings]='eventSettings' [selectedDate]='selectedDate' (popupOpen)='onPopupOpen($event)'
+ [showQuickInfo]="showQuickInfo" >
+<e-views>
+    <!-- <e-view option="TimelineDay"></e-view> -->
+    <e-view option="TimelineWeek"></e-view>
+    <!-- <e-view option="TimelineWorkWeek"></e-view>
+    <e-view option="TimelineMonth"></e-view>
+    <e-view option="Agenda"></e-view> -->
+</e-views>
+
+
+<e-resources>
+    <e-resource field='DepartmentID' title='Department' name='Departments' [dataSource]='departmentDataSource' textField='Text' idField='Id' colorField='Color'>
+    </e-resource>
+    <e-resource field='ConsultantID' title='Consultant' name='Consultants' [dataSource]='consultantDataSource' textField='Text' idField='Id' groupIDField="GroupId" colorField='Color'>
+    </e-resource>
+</e-resources>
+</ejs-schedule>
+
